@@ -1,7 +1,5 @@
 package tp.command;
 
-package tp.command;
-
 import tp.*;
 import tp.person.Doctor;
 

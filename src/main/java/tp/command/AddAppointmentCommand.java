@@ -1,5 +1,3 @@
-package tp;
-
 package tp.command;
 
 import tp.*;
@@ -27,8 +25,8 @@ public class AddAppointmentCommand extends Command {
     @Override
     public void execute(DoctorList doctorList, PatientList patientList,
                         AppointmentList appointmentList, Ui ui, DoctorStorage doctorStorage,
-                                    PatientStorage patientStorage,
-                                        AppointmentStorage appointmentStorage) throws IHospitalException {
+                        PatientStorage patientStorage,
+                        AppointmentStorage appointmentStorage) throws IHospitalException {
         Doctor doctor = (Doctor) doctorList.getDoctor(doctorIndex);
         Patient patient = (Patient) patientList.getPatient(patientIndex);
         appointmentList.addAppointment(doctor, patient, time);
