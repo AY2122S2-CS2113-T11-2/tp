@@ -1,5 +1,7 @@
 package tp;
 
+import tp.command.*;
+
 import java.util.Scanner;
 
 public class Parser {

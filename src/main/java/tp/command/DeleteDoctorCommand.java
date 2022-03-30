@@ -1,10 +1,12 @@
-package tp;
+package tp.command;
 
-public class GetAppointmentsOfDoctorCommand extends Command {
-    private final String id;
+import tp.*;
 
-    public GetAppointmentsOfDoctorCommand(String id) {
-        this.id = id;
+public class DeleteDoctorCommand extends Command {
+    private final int index;
+
+    public DeleteDoctorCommand(int index) {
+        this.index = index;
     }
 
     @Override
@@ -12,6 +14,6 @@ public class GetAppointmentsOfDoctorCommand extends Command {
                         AppointmentList appointmentList, Ui ui, DoctorStorage doctorStorage,
                         PatientStorage patientStorage,
                         AppointmentStorage appointmentStorage) throws IHospitalException {
-        System.out.println(appointmentList.getAppointmentListOfDoctorById(id));
+        doctorList.deleteDoctor(index);
     }
 }

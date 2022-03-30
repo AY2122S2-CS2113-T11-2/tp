@@ -1,5 +1,6 @@
-package tp;
+package tp.command;
 
+import tp.*;
 import tp.person.Patient;
 
 public class AddPatientCommand extends Command {
