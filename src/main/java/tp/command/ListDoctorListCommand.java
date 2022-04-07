@@ -1,13 +1,21 @@
 package tp.command;
 
-import tp.*;
+import tp.AppointmentList;
+import tp.DoctorList;
+import tp.PatientList;
+import tp.Ui;
+import tp.person.Doctor;
+import tp.DoctorStorage;
+import tp.PatientStorage;
+import tp.IHospitalException;
+import tp.AppointmentStorage;
 
 public class ListDoctorListCommand extends Command {
 
     @Override
-    public String execute(DoctorList doctorList, PatientList patientList, NurseList nurseList,
+    public String execute(DoctorList doctorList, PatientList patientList,
                           AppointmentList appointmentList, Ui ui, DoctorStorage doctorStorage,
-                          PatientStorage patientStorage,NurseStorage nurseStorage,
+                          PatientStorage patientStorage,
                           AppointmentStorage appointmentStorage) throws IHospitalException {
         return doctorList.toString();
     }

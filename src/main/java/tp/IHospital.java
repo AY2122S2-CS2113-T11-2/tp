@@ -10,7 +10,6 @@ public class IHospital {
     private static DoctorList doctors = new DoctorList();
     private static PatientList patients = new PatientList();
     private static AppointmentList appointments = new AppointmentList();
-    private static NurseList nurses= new NurseList();
 
     public IHospital() {
     }
@@ -22,17 +21,15 @@ public class IHospital {
         DoctorStorage doctorStorage = new DoctorStorage();
         PatientStorage patientStorage = new PatientStorage();
         AppointmentStorage appointmentStorage = new AppointmentStorage();
-        NurseStorage nurseStorage = new NurseStorage();
         doctors = doctorStorage.loadDoctorList();
         patients = patientStorage.loadPatientList();
         appointments = appointmentStorage.loadAppointmentList();
-        nurses=nurseStorage.loadNurseList();
 
         while (!fullCommand.equals("bye")) {
             try {
                 Command c = parser.parse(fullCommand);
-                ui.generateResponse(c.execute(doctors, patients, nurses,appointments, ui,
-                        doctorStorage, patientStorage, nurseStorage,appointmentStorage));
+                ui.generateResponse(c.execute(doctors, patients, appointments, ui,
+                        doctorStorage, patientStorage, appointmentStorage));
                 fullCommand = Parser.getCommand();
             } catch (IHospitalException e) {
                 ui.generateResponse(e.getMessage());
@@ -42,10 +39,9 @@ public class IHospital {
         doctorStorage.saveDoctorList(doctors);
         patientStorage.savePatientList(patients);
         appointmentStorage.saveAppointmentList(appointments);
-        nurseStorage.saveNurseList(nurses);
         Command c = new ExitCommand();
-        c.execute(doctors, patients, nurses,appointments, ui,
-                doctorStorage, patientStorage, nurseStorage,appointmentStorage);
+        c.execute(doctors, patients, appointments, ui,
+                doctorStorage, patientStorage, appointmentStorage);
         ui.sayGoodbye();
     }
 

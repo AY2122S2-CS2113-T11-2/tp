@@ -1,8 +1,15 @@
 package tp.command;
 
-import tp.*;
+import tp.AppointmentList;
+import tp.DoctorList;
+import tp.DoctorStorage;
+import tp.PatientList;
 import tp.person.Doctor;
 import tp.person.Patient;
+import tp.Ui;
+import tp.PatientStorage;
+import tp.AppointmentStorage;
+import tp.IHospitalException;
 
 import java.time.LocalDateTime;
 
@@ -23,9 +30,9 @@ public class AddAppointmentCommand extends Command {
 
 
     @Override
-    public String execute(DoctorList doctorList, PatientList patientList, NurseList nurseList,
+    public String execute(DoctorList doctorList, PatientList patientList,
                           AppointmentList appointmentList, Ui ui, DoctorStorage doctorStorage,
-                          PatientStorage patientStorage,NurseStorage nurseStorage,
+                          PatientStorage patientStorage,
                           AppointmentStorage appointmentStorage) throws IHospitalException {
         if (doctorIndex > doctorList.getSize()) {
             throw new IHospitalException("The doctor does not exist\n");
